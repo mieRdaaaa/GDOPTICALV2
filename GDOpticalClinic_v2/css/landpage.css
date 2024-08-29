@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('http://localhost/GDoptical/imgs/mainBG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.logo-container {
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    z-index: 1100;
+}
+
+.logo-container img{
+    width: 90px;
+    height: auto;
+}
+.second-logo {
+    position: absolute;
+    top: 175px;
+    right: 138px;
+    left: auto;
+}
+
+.second-logo img{
+    width: 588px;
+    height: auto;
+}
+.rectangle-bar {
+    background-color: #c9cfd9;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.text-container {
+    position: absolute;
+    top: -16px;
+    left: 100px; 
+    z-index: 1000;
+
+    
+}
+.text {
+    font-family: "Swis721 Blk BT", sans-serif; 
+    font-size: 38px;
+    color: #01abee; 
+    text-transform: uppercase;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+}
+
+.text-container.welcome {
+    position: absolute;
+    top: 200px; 
+    left: 75%; 
+    transform: translateX(-50%);
+    z-index: 1200; 
+}
+
+.text-container.welcome .text {
+    color: rgb(255, 255, 255);
+    font-family: Aharoni, sans-serif;
+    font-size: 67px;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+
+}
+.slanted-text {
+    position: absolute; 
+    top: 430px;
+    right: -335px; 
+    color: white;
+    font-family: "Swis721 Blk BT", sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    text-transform: uppercase;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+    transform: rotate(0deg);
+    white-space: nowrap; 
+}
+
+.highlight {
+    color: #01abee; /* GD NA TEXT */
+}
+
+.white-text {
+    color: #ffffff; /* OPTICAL CLINIC NA TEXT */
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn {
+    background-color: #01abee;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: -5px;
+    right: 25px;
+    z-index: 1100;
+}
+.btn:hover {
+    background-color: #272626;
+}
