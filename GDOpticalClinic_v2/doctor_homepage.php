@@ -119,6 +119,8 @@ if (isset($_SESSION['username'])) {
           
     </nav>
 
+    
+
     <script src="js/script.js"></script>
   </body>
 </html>

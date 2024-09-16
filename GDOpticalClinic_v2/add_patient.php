@@ -75,50 +75,52 @@ include('secretary_homepage.php');
 </head>
 <body>
 <div class="main-content">
-    <div class="form-container">
+    <form class="form-container"> 
         <h2>Patient Information</h2>
-        <form method="POST">
-            <div class="form-row">
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" required>
-            </div>
-            <div class="form-row">
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required>
-            </div>
-            <div class="form-row">
-                <label for="middle_name">Middle Name:</label>
-                <input type="text" id="middle_name" name="middle_name">
-            </div>
-            <div class="form-row">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <div class="form-row">
-                <label for="medication_history">Medication History:</label>
-                <textarea id="medication_history" name="medication_history"></textarea>
-            </div>
-            <div class="form-row">
-                <label for="date_of_birth">Date of Birth:</label>
-                <input type="date" id="date_of_birth" name="date_of_birth" required>
-            </div>
-            <div class="form-row">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="form-row">
-                <label for="contact_no">Contact No.:</label>
-                <input type="number" id="contact_no" name="contact_no" required>
-            </div>
-            <div class="form-row">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    </div>
+        <div class="input-box">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="firstName" placeholder="Enter first name" required>
+        </div>
+        <div class="input-box">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="lastName" placeholder="Enter last name" required>
+        </div>
+        <div class="input-box">
+            <label for="middle_name">Middle Name:</label>
+            <input type="text" id="middle_name" name="middleName" placeholder="Enter middle name">
+        </div>
+        <div class="input-box">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Enter address" required>
+        </div>
+        <div class="input-box">
+            <label for="medHistory">Medication History:</label>
+            <textarea id="Text" name="medHistory" placeholder="Enter medication history"></textarea>
+        </div>
+        <div class="input-box">
+            <label for="birthdate">Birth of Date:</label>
+            <input type="date" id="birthdate" name="birthdate" placeholder="Enter birth date" required>
+        </div>
+        <div class="input-box">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="input-box">
+            <label for="contact_no">Contact No.:</label>
+            <input type="text" id="contact_no" name="contact" placeholder="Enter contact number" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 </div>
+
+<script>
+    const today = new Date();
+    const sixMonthsAgo = new Date(today.setMonth(today.getMonth() - 6));
+    const minDate = sixMonthsAgo.toISOString().split("T")[0];
+    document.getElementById('birthdate').setAttribute('max', minDate);
+</script>
 </body>
 </html>

@@ -13,11 +13,13 @@ $warning_message = isset($_GET['warning_message']) ? $_GET['warning_message'] : 
     <link rel="stylesheet" href="css/add_user_secretary.css">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <link rel="shortcut icon" href="images/ico.png" />
+
+    
     
 </head>
 <body>
     <section class="container">
-        <header>Add User</header>
+        <header>Create User</header>
 
         <?php if (!empty($warning_message)): ?>
             <div class="warning-message" style="color: #39FF14 !important;"><?php echo $warning_message; ?></div>
@@ -38,20 +40,45 @@ $warning_message = isset($_GET['warning_message']) ? $_GET['warning_message'] : 
                 <input type="password" name="password" placeholder="Enter password" required>
             </div>
 
-            <div class="input-box">
-                <label>Address</label>
-                <input type="text" name="address" placeholder="Enter address" required>
-            </div>
+           <!-- Address Selector -->
+<div class="input-box">
+    <label>Region</label>
+    <select id="region" name="region" onchange="loadProvinces()" required>
+        <option value="">Select Region</option>
+    </select>
+</div>
+
+<div class="input-box">
+    <label>Province</label>
+    <select id="province" name="province" onchange="loadCities()" required>
+        <option value="">Select Province</option>
+    </select>
+</div>
+
+<div class="input-box">
+    <label>City / Municipality</label>
+    <select id="city" name="city" onchange="loadBarangays()" required>
+        <option value="">Select City / Municipality</option>
+    </select>
+</div>
+
+<div class="input-box">
+    <label>Barangay</label>
+    <select id="barangay" name="barangay" required>
+        <option value="">Select Barangay</option>
+    </select>
+</div>
+
 
             <div class="column">
-                <div class="input-box">
-                    <label>Contact number</label>
-                    <input type="number" name="contact_number" placeholder="Enter phone number" required>
-                </div>
-                <div class="input-box">
-                    <label>Birth of Date</label>
-                    <input type="date" name="birthdate" placeholder="Enter birth date" required>
-                </div>
+            <div class="input-box">
+    <label>Contact number</label>
+    <input type="number" name="contact_number" id="contact_number" placeholder="Enter phone number" required oninput="validateNumber(this)">
+</div>
+<div class="input-box">
+    <label>Birth of Date</label>
+    <input type="date" name="birthdate" id="birthdate" placeholder="Enter birth date" required>
+</div>
             </div>
 
             <div class="gender-box">
@@ -94,5 +121,28 @@ $warning_message = isset($_GET['warning_message']) ? $_GET['warning_message'] : 
             <div class="success-message"><?php echo $success_message; ?></div>
         <?php endif; ?>
     </section>
+    <script src="js/address_selector.js"></script>
+    <script>
+    function validateNumber(input) {
+        // Remove any non-digit characters
+        input.value = input.value.replace(/[^0-9]/g, '');
+    }
+    // Get the current date
+    function validateNumber(input) {
+        // Remove any non-digit characters
+        input.value = input.value.replace(/[^0-9]/g, '');
+    }
+    // Get the current date
+    const today = new Date();
+
+    // Calculate the date that is 18 years ago from today
+    const eighteenYearsAgo = new Date(today.setFullYear(today.getFullYear() - 18));
+
+    // Format the date to YYYY-MM-DD
+    const maxDate = eighteenYearsAgo.toISOString().split("T")[0];
+
+    // Set the max date for the birthdate input field
+    document.getElementById('birthdate').setAttribute('max', maxDate);
+</script>
 </body>
 </html>

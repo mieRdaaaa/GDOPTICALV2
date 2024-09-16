@@ -58,6 +58,7 @@ $result = $conn->query($sql);
         <input type="text" name="search" placeholder=" . . . ." value="<?php echo htmlspecialchars($search); ?>">
         <button type="submit"><i class="fa fa-search"></i> Search</button>
     </form>
+    <div class="table-container">
     <table>
         <thead>
             <tr>
@@ -73,7 +74,7 @@ $result = $conn->query($sql);
             </tr>
         </thead>
         <tbody>
-            <?php
+        <?php
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
@@ -88,17 +89,15 @@ $result = $conn->query($sql);
                             <td>{$row['account_type']}</td>
                             <td>
                                 <a href='doctor_usersedit.php?id={$row['accounts_id']}' class='action-btn view'><i class='fa fa-edit'></i></a>
-                                
                                 <a href='?delete_id={$row['accounts_id']}' class='action-btn delete' onclick='return confirm(\"Are you sure you want to delete this record?\")'><i class='fa fa-trash'></i></a> 
-                                
                           </tr>";
                 }
             } else {
                 echo "<tr><td colspan='8'>No records found</td></tr>";
             }
-            
             ?>
         </tbody>
     </table>
+</div>
 </body>
 </html>

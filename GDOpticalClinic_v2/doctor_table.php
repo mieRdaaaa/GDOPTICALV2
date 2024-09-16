@@ -9,12 +9,14 @@ if (isset($_GET['search'])) {
 }
 
 // Fetch data with search filter
-$sql = "SELECT patients_id, last_name, first_name, middle_name, gender, date_of_birth, contact_no, date_added FROM patients 
+$sql = "SELECT patients_id, last_name, first_name, middle_name, gender, date_of_birth, contact_no, address, date_added FROM patients 
         WHERE last_name LIKE '%$search%' 
         OR first_name LIKE '%$search%' 
         OR middle_name LIKE '%$search%'       
         OR contact_no LIKE '%$search%'
+        OR address LIKE '%$search%'
         OR date_added LIKE '%$search%'";
+
 
 $result = $conn->query($sql);
 
@@ -76,6 +78,7 @@ if (isset($_GET['delete_id'])) {
                 <th>Gender</th>
                 <th>Date of Birth</th>
                 <th>Contact Number</th>
+                <th>Address</th>
                 <th>Date Added</th>
                 <th>Action</th>
             </tr>
@@ -92,6 +95,7 @@ if (isset($_GET['delete_id'])) {
                             <td>{$row['gender']}</td>
                             <td>{$row['date_of_birth']}</td>
                             <td>{$row['contact_no']}</td>
+                            <td>{$row['address']}</td>
                             <td>{$row['date_added']}</td>
                             <td>
                                 <a href='doctor_view.php?id={$row['patients_id']}' class='action-btn view'><i class='fa fa-eye'></i></a>
